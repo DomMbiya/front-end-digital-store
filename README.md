@@ -1,16 +1,81 @@
-# React + Vite
+# Loja Drip (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de e-commerce front-end desenvolvida com React, Vite e Tailwind CSS, focada em navegação de produtos, carrinho persistente e fluxo de compra de um catálogo de moda urbana.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias
 
-## React Compiler
+- React 19 + React Router DOM 7
+- Vite 7
+- Tailwind CSS v4 com plugin `@tailwindcss/postcss`
+- PostCSS + Autoprefixer
+- ESLint com regras básicas `@eslint/js` + React hooks
+- Axios (para simular chamadas de API / integração futura)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funcionalidades principais
 
-## Expanding the ESLint configuration
+- Página inicial com hero, coleções em destaque e filtro por categoria
+- Listagem de produtos (`/produtos`) com:
+  - busca por query
+  - filtro por marca, categoria, gênero e estado
+  - ordenação por preço (menor / maior)
+- Página de produto detalhado (`/produto/:id`) com imagens, descrição e relacionados
+- Carrinho de compras com persistência (`localStorage`): adicionar, remover, limpar
+- Autenticação básica (páginas `login`, `register`, `completar-cadastro`)
+- Página de pedidos (`/pedidos`)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 Estrutura do projeto
+
+- `src/App.jsx` - configuração de rotas
+- `src/pages` - páginas da aplicação
+- `src/components` - componentes UI e layout
+- `src/contexts/cartContext.jsx` - contexto do carrinho
+- `src/data/products.js` - catálogo de produtos fictício
+- `src/services/api.js` - wrapper para chamadas de API
+- `src/index.css` - import Tailwind + variáveis CSS
+
+## ▶️ Como rodar
+
+1. clonar repo
+
+```bash
+git clone <repo-url>
+cd loja-drip
+```
+
+2. instalar dependências
+
+```bash
+npm install
+```
+
+3. rodar modo dev
+
+```bash
+npm run dev
+```
+
+Acesse: `http://localhost:5173`
+
+## 🛠️ Scripts úteis
+
+- `npm run dev` - desenvolvimento com HMR
+- `npm run build` - build de produção
+- `npm run preview` - preview do build
+- `npm run lint` - verificação de lint
+
+## 🌱 Melhorias futuras
+
+- backend real + API REST
+- autenticação JWT + confirmação de e-mail
+- checkout e cálculo de frete
+- testes unitários e E2E
+- otimização de performance e imagem lazyload
+
+## 💡 Observações
+
+- Rota `produtos?categoria=<nome>` inicializa filtro por categoria.
+- `CartProvider` deve envolver o app para persistência de carrinho.
+- `useMemo` é usado no filtro de produtos para performance.
+
